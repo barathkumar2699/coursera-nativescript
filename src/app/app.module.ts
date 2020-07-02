@@ -8,11 +8,14 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
+import { HomeComponent } from './home/home.component';
 
 import { DishService } from './services/dish.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { LeaderService } from './services/leader.service';
 
 import { baseURL } from './shared/baseurl';
+import { PromotionService } from "./services/promotion.service";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -34,12 +37,15 @@ import { baseURL } from './shared/baseurl';
     declarations: [
         AppComponent,
         MenuComponent,
-        DishdetailComponent
+        DishdetailComponent,
+        HomeComponent
     ],
     providers: [
     {provide: 'baseURL', useValue: baseURL},
     DishService,
-    ProcessHTTPMsgService],
+    ProcessHTTPMsgService,
+    PromotionService,
+    LeaderService],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
