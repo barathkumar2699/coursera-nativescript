@@ -16,6 +16,8 @@ import { LeaderService } from './services/leader.service';
 
 import { baseURL } from './shared/baseurl';
 import { PromotionService } from "./services/promotion.service";
+import { AboutComponent } from "./about/about.component";
+import { ContactComponent } from "./contact/contact.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -38,7 +40,9 @@ import { PromotionService } from "./services/promotion.service";
         AppComponent,
         MenuComponent,
         DishdetailComponent,
-        HomeComponent
+        HomeComponent,
+        AboutComponent,
+        ContactComponent
     ],
     providers: [
     {provide: 'baseURL', useValue: baseURL},
