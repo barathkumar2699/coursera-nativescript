@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
+import { FavoritesComponent } from "./favourite/favorites.component";
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'dishdetail/:id',     component: DishdetailComponent },
     { path: "about", component: AboutComponent },
     { path: "contactus", component: ContactComponent },
+    { path: "favorites", component: FavoritesComponent },
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { RouterExtensions } from 'nativescript-angular/router';
 // import 'rxjs/add/operator/switchMap';
 import { switchMap } from 'rxjs/operators';
-import { Toasty, ToastDuration } from 'nativescript-toasty';
+import { Toasty } from 'nativescript-toasty';
 import { Color } from 'tns-core-modules/color';
 
 @Component({
@@ -54,11 +54,12 @@ export class DishdetailComponent implements OnInit {
             if (!this.favorite) {
               console.log('Adding to Favorites', this.dish.id);
               this.favorite = this.favoriteservice.addFavorite(this.dish.id);
-              const toast = new Toasty({text:"Added Dish "+ this.dish.id});
-              toast.duration = ToastDuration.SHORT;
-              toast.textColor = '#fff';
-              toast.backgroundColor = new Color('purple');
-              toast.show();
+
+              const toast = new Toasty("Dish added"+this.dish.id).show();
+            //   toast.duration = ToastDuration.SHORT;
+            //   toast.textColor = '#fff';
+            //   toast.backgroundColor = new Color('purple');
+            //   toast.show();
             }
           }
 
