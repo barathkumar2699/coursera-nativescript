@@ -21,6 +21,7 @@ import { PromotionService } from "./services/promotion.service";
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
 import { DrawerComponent } from "./shared/drawer/drawer.component";
+import { FavoriteService } from "./services/favorite.service";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -60,7 +61,9 @@ import { DrawerComponent } from "./shared/drawer/drawer.component";
     DishService,
     ProcessHTTPMsgService,
     PromotionService,
-    LeaderService],
+    LeaderService,
+    FavoriteService
+],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
