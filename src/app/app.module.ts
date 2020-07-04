@@ -3,6 +3,8 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { HttpClientModule } from '@angular/common/http';
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
+import { TNSFontIconModule, TNSFontIconService, USE_STORE  } from 'nativescript-ngx-fonticon';
+
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -18,12 +20,15 @@ import { baseURL } from './shared/baseurl';
 import { PromotionService } from "./services/promotion.service";
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
+import { DrawerComponent } from "./shared/drawer/drawer.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+
+// TNSFontIconService.debug = true;
 
 @NgModule({
     bootstrap: [
@@ -34,7 +39,11 @@ import { ContactComponent } from "./contact/contact.component";
         AppRoutingModule,
         NativeScriptHttpClientModule,
         HttpClientModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        TNSFontIconModule.forRoot({
+            'fa': ('./fonts/font-awesome.min.css')
+        })
+        // TNSFontIconModule.forRoot({})
     ],
     declarations: [
         AppComponent,
@@ -42,10 +51,12 @@ import { ContactComponent } from "./contact/contact.component";
         DishdetailComponent,
         HomeComponent,
         AboutComponent,
-        ContactComponent
+        ContactComponent,
+        DrawerComponent
     ],
     providers: [
-    {provide: 'baseURL', useValue: baseURL},
+       
+    {provide: 'BaseURL', useValue: baseURL},
     DishService,
     ProcessHTTPMsgService,
     PromotionService,

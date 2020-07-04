@@ -1,33 +1,28 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { LeaderService } from "../services/leader.service";
-import { ActivatedRoute } from "@angular/router";
-import { RouterExtensions } from "nativescript-angular/router";
-import { Leader } from "../shared/leader";
-
+import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';
+import { Leader } from '../shared/leader';
+import { LeaderService } from '../services/leader.service';
+import { DrawerPage } from '../shared/drawer/drawer.page';
 
 @Component({
-  selector: 'app-about',
+    selector: 'app-about',
     moduleId: module.id,
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+    templateUrl: './about.component.html'
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent extends DrawerPage implements OnInit {
+
     leaders: Leader[];
-	constructor(private leaderService: LeaderService,
-				private route: ActivatedRoute,
-				private routerExtensions: RouterExtensions,
-				@Inject('baseURL') private BaseURL) {
-	}
+    errMess: string;
 
-	ngOnInit() {
-		this.leaderService.getLeaders()
-            .subscribe(leaders => {this.leaders = leaders;
-                console.log(this.leaders)
-            });
-        
-	}
+    constructor(private leaderservice: LeaderService,
+        private changeDetectorRef: ChangeDetectorRef,
+        @Inject('BaseURL') private BaseURL) {
+        super(changeDetectorRef);
+    }
 
-	goBack(): void {
-		this.routerExtensions.back();
-	}
+    ngOnInit() {
+        this.leaderservice.getLeaders()
+            .subscribe(leaders => this.leaders = leaders,
+                err => this.errMess = <any>err);
+    }
+
 }

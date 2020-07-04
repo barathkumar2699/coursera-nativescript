@@ -1,29 +1,2 @@
-<RadSideDrawer [drawerTransition]="sideDrawerTransition" tkExampleTitle tkToggleNavButton>
-    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
-        <GridLayout class="sidedrawer-header" rows="auto" columns="100, *">
-            <!-- This GridLayout contains One row and two columns. Their first column is 100 units, and the second column will occupy whatever is left over in that view there.  -->
-            <Label row="0" col="1" text="Ristorante Con Fusion" class="sidedrawer-header-brand" textWrap="true"></Label>
-        </GridLayout>
-        <Image src="images/uthappizza.png" class="sidedrawer-header-image"></Image>
 
-        <ScrollView row="1">
-            <StackLayout class="sidedrawer-content">
-                <GridLayout columns="auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/menu')"
-                 (tap)="onNavItemTap('/menu')">
-                    <Label col="1" text="Menu" class="sidedrawer-list-item-text"></Label>
-                </GridLayout>
-                <GridLayout columns="auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')">
-                    <Label col="1" text="Home" class="sidedrawer-list-item-text"></Label>
-                </GridLayout>
-                <GridLayout columns="auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/about')" (tap)="onNavItemTap('/about')">
-                    <Label col="1" text="About Us" class="sidedrawer-list-item-text"></Label>
-                </GridLayout>
-                <GridLayout columns="auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/contact')" (tap)="onNavItemTap('/contact')">
-                    <Label col="1" text="Contact Us" class="sidedrawer-list-item-text"></Label>
-                </GridLayout>
-            </StackLayout>
-        </ScrollView>
-    </GridLayout>
-    
 <page-router-outlet tkMainContent></page-router-outlet>
-</RadSideDrawer>
