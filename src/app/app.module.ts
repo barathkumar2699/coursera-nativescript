@@ -5,6 +5,8 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
 import { TNSFontIconModule, TNSFontIconService, USE_STORE  } from 'nativescript-ngx-fonticon';
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -24,6 +26,7 @@ import { ContactComponent } from "./contact/contact.component";
 import { DrawerComponent } from "./shared/drawer/drawer.component";
 import { FavoriteService } from "./services/favorite.service";
 import { FavoritesComponent } from "./favourite/favorites.component";
+import { ReservationComponent } from "./reservation/reservation.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -44,6 +47,8 @@ import { FavoritesComponent } from "./favourite/favorites.component";
         HttpClientModule,
         NativeScriptUISideDrawerModule,
         NativeScriptUIListViewModule,
+        NativeScriptFormsModule,
+        ReactiveFormsModule,
         TNSFontIconModule.forRoot({
             'fa': ('./fonts/font-awesome.min.css')
         })
@@ -57,7 +62,8 @@ import { FavoritesComponent } from "./favourite/favorites.component";
         AboutComponent,
         ContactComponent,
         DrawerComponent,
-        FavoritesComponent
+        FavoritesComponent,
+        ReservationComponent
     ],
     providers: [
        
