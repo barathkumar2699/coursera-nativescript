@@ -1,7 +1,9 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
 import { TextField } from "tns-core-modules/ui/text-field";
 import { Switch } from "tns-core-modules/ui/switch";
 import { Validators, FormBuilder, FormGroup} from '@angular/forms';
+import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
+import { ReservationModalComponent } from "../reservationmodal/reservationmodal.component";
 
 @Component({
     selector: 'app-reservation',
@@ -13,13 +15,34 @@ export class ReservationComponent implements OnInit {
 
     reservation: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder, private modalService: ModalDialogService, 
+        private vcRef: ViewContainerRef) {
 
             this.reservation = this.formBuilder.group({
                 guests: 3,
                 smoking: false,
                 dateTime: ['', Validators.required]
             });
+    }
+
+    createModalView(args) {
+
+        let options: ModalDialogOptions = {
+            viewContainerRef: this.vcRef,
+            context: args,
+            fullscreen: false
+        };
+
+        this.modalService.showModal(ReservationModalComponent, options)
+            .then((result: any) => {
+                if (args === "guest") {
+                    this.reservation.patchValue({guests: result});
+                }
+                else if (args === "date-time") {
+                    this.reservation.patchValue({ dateTime: result});
+                }
+            });
+
     }
 
     ngOnInit() {
