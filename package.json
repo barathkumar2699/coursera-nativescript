@@ -30,6 +30,7 @@
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.4.0",
     "tns-core-modules": "~6.5.0",
+    "ui-dialog": "^2.0.1",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
