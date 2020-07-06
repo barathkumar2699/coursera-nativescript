@@ -29,6 +29,7 @@ import { FavoritesComponent } from "./favourite/favorites.component";
 import { ReservationComponent } from "./reservation/reservation.component";
 import { ReservationModalComponent } from "./reservationmodal/reservationmodal.component";
 import { CommentComponent } from "./comment/comments.component";
+import { CouchbaseService } from './services/couchbase.service';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -77,7 +78,8 @@ import { CommentComponent } from "./comment/comments.component";
     ProcessHTTPMsgService,
     PromotionService,
     LeaderService,
-    FavoriteService
+    FavoriteService,
+    CouchbaseService
 ],
     schemas: [
         NO_ERRORS_SCHEMA
