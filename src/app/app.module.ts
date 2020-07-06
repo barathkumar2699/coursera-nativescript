@@ -28,6 +28,7 @@ import { FavoriteService } from "./services/favorite.service";
 import { FavoritesComponent } from "./favourite/favorites.component";
 import { ReservationComponent } from "./reservation/reservation.component";
 import { ReservationModalComponent } from "./reservationmodal/reservationmodal.component";
+import { CommentComponent } from "./comment/comments.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -65,9 +66,10 @@ import { ReservationModalComponent } from "./reservationmodal/reservationmodal.c
         DrawerComponent,
         FavoritesComponent,
         ReservationComponent,
-        ReservationModalComponent
+        ReservationModalComponent,
+        CommentComponent
     ],
-    entryComponents: [ReservationModalComponent],
+    entryComponents: [ReservationModalComponent,CommentComponent],
     providers: [
        
     {provide: 'BaseURL', useValue: baseURL},

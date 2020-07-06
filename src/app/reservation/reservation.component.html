@@ -1,5 +1,11 @@
 <ActionBar title="Reserve Table" class="action-bar">
 </ActionBar>
+<RadSideDrawer #drawerComponent tkToggleNavButton showOverNavigation="true">
+    <ScrollView tkDrawerContent class="sidedrawer-left">
+        <StackLayout horizontalAlign="left">
+            <drawer-content></drawer-content>
+        </StackLayout>
+    </ScrollView>
 <ScrollView orientation="vertical" tkMainContent class="page">
     <GridLayout class="m-5" rows="auto auto auto auto" columns="*, *" [formGroup]="reservation">
         <Label class="h3 m-15" row="0" col="0" text="No. of Guests" textWrap="true"></Label>
@@ -21,3 +27,4 @@
             text="Submit" (tap)="onSubmit()"></Button>
     </GridLayout>
 </ScrollView>
+</RadSideDrawer>
