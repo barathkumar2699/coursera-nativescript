@@ -10,6 +10,7 @@ import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
 import { FavoritesComponent } from "./favourite/favorites.component";
 import { ReservationComponent } from "./reservation/reservation.component";
+import { UserAuthComponent } from "./userauth/userauth.component";
 
 
 
@@ -22,6 +23,7 @@ const routes: Routes = [
     { path: "contactus", component: ContactComponent },
     { path: "favorites", component: FavoritesComponent },
     { path: "reservation", component: ReservationComponent },
+    { path: "auth", component: UserAuthComponent },
 ];
 
 @NgModule({
