@@ -4,6 +4,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { DrawerPage } from '../shared/drawer/drawer.page';
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import * as Email from 'nativescript-email';
+import * as Phone from 'nativescript-phone';
 
 @Component({
     selector: 'app-contact',
@@ -36,5 +37,9 @@ export class ContactComponent extends DrawerPage {
             })
 
     }
+    callRestaurant(){
+        console.log('calling');
+        Phone.dial('01-2345-6789', true);
+    }	    
 
 }
