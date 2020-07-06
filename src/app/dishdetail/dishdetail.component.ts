@@ -20,6 +20,8 @@ import { View } from "tns-core-modules/ui/core/view";
 import { SwipeGestureEventData, SwipeDirection } from "tns-core-modules/ui/gestures";
 import { Color } from 'tns-core-modules/color';
 import * as enums from "tns-core-modules/ui/enums";
+import * as SocialShare from "nativescript-social-share";
+import { ImageSource, fromUrl } from "tns-core-modules/image-source";
 
 @Component({
     selector: 'app-dishdetail',
@@ -62,6 +64,18 @@ export class DishdetailComponent implements OnInit {
                 this.updateCommentsInfo();
               },
               errmess => { this.dish = null; this.errMess = <any>errmess; });
+        }
+
+        socialShare() {
+          let image: ImageSource;
+      
+          fromUrl(this.BaseURL + this.dish.image)
+           .then((img: ImageSource) => {
+             image = img; 
+              SocialShare.shareImage(image, "How would you like to share this image?")
+            })
+           .catch(()=> { console.log('Error loading image'); });
+      
         }
       
         addToFavorites() {
@@ -108,13 +122,16 @@ export class DishdetailComponent implements OnInit {
           title: "Actions available",
           message: "Select an option",
           cancelButtonText: "Cancel",
-          actions: ["Add to favorites", "Add comment"]
+          actions: ["Add to Favorites", "Add Comment", "Social Sharing"]
       };
       action(options).then((result) => {
         if (result == 'Add to favorites') {
           this.addToFavorites();
         } else if (result == 'Add comment') {
           this.openCommentModal();
+        }
+        else if (result === 'Social Sharing') {
+          this.socialShare();
         }
       });
     }
